@@ -1,0 +1,42 @@
+{% extends "layout.twig" %}
+
+{% block content %}    
+    <div class="row">        
+        <div class="col-sm-12 col-md-8 offset-md-2 mt-3">
+            <h1>Products</h1>
+            <div class="table-responsive table-responsive-sm">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Existencias</th>
+                        <th scope="col">Departamento</th>
+                        <th scope="col">P. Unitario</th>
+                        <th scope="col">P. Venta</th>
+                        <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <th scope="row">{{ product.ID }}</th>
+                                <td>{{ product.NAME }}</td>
+                                <td>{{ product.DESCRIPTION }}</td>                                
+                                <td>{{ product.DESCRIPTION }}</td>                                
+                                <td>{{ product.DESCRIPTION }}</td>                                
+                                <td>{{ product.DESCRIPTION }}</td>                                
+                                <td>{{ product.DESCRIPTION }}</td>                                
+                                <td>
+                                  <a href="/products/edit/{{ product.ID }}" data-target="#modalProduct" data-toggle="modal" class="btn btn-secondary btn-sm "><img src="img/pen-solid.svg" alt="Editar" width="10" heght="10"></a>
+                                  <a href="/products/delete/{{ product.ID }}" onclick="return confirm('Seguro que desea eliminar este producto')" class="btn btn-secondary btn-sm"><img src="img/trash-solid.svg" alt="Eliminar" width="10" heght="10"> </a>
+                                </td>
+                            </tr>
+                        {% endfor %}                        
+                    </tbody>
+                </table>                
+            </div>
+        </div>        
+    </div>
+{% endblock %}
